@@ -15,7 +15,6 @@ class pose_detector():
         'right_elbow', 'left_wrist', 'right_wrist', 'left_pinky', 'right_pinky', 'left_index', 'right_index', 
         'left_thumb', 'right_thumb', 'left_hip', 'right_hip', 'left_knee', 'right_knee', 'left_ankle', 'right_ankle',
          'left_heel', 'right_heel', 'left_foot_index', 'right_foot_index']
-         
     def find_pose(self, img, draw_points = True):
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.pose.process(img_rgb)
@@ -35,9 +34,8 @@ class pose_detector():
             for id, lm in enumerate(self.results.pose_landmarks.landmark):
                 h,w,c = img.shape
                 cx,cy = int(lm.x*w), int(lm.y*h)
-                landmarks_list[self.lm_names[id]] = (lm.x,lm.y) 
+                landmarks_list[self.lm_names[id]] = (lm.x,lm.y,lm.visibility) 
                 cv2.circle(img, (cx,cy),10, (0,0,255), cv2.FILLED)
-        
         return landmarks_list
 
     def calc_angle(self,a,b,c):
