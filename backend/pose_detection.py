@@ -32,10 +32,10 @@ class pose_detector():
         landmarks_list = {}
         if self.results.pose_landmarks:
             for id, lm in enumerate(self.results.pose_landmarks.landmark):
-                h,w,c = img.shape
-                cx,cy = int(lm.x*w), int(lm.y*h)
+                #h,w,c = img.shape
+                #cx,cy = int(lm.x*w), int(lm.y*h)
                 landmarks_list[self.lm_names[id]] = (lm.x,lm.y,lm.visibility) 
-                cv2.circle(img, (cx,cy),10, (0,0,255), cv2.FILLED)
+                #cv2.circle(img, (cx,cy),10, (0,0,255), cv2.FILLED)
         return landmarks_list
 
     def calc_angle(self,a,b,c):

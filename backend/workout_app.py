@@ -13,7 +13,7 @@ def main():
         
         if len(lmList) != 0:
             #print(lmList['right_pinky'], lmList['right_wrist'], lmList['right_thumb'])
-            count_squat(cur_session, detector,lmList)
+            count_hip_thrust(cur_session, detector,lmList)
             
             print(math.floor(cur_session['reps']))
         cv2.imshow("vid",detector.find_pose(img))

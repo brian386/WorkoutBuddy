@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="main.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     </head>
+    <script src = "app.js" defer></script>
     <body bgcolor="#DCCDE8">
       <nav>
         <div class="purple accent-1 nav-wrapper">
@@ -27,8 +28,14 @@
 
       <!-- Video location -->
         <div  style="display:flex;justify-content:center;align-items:center;">
-          <img src="static/001-dumbbell.png" width="400px" height="400px">
+          <!--img src="static/001-dumbbell.png" width="400px" height="400px"-->
+          
         </div>
+
+        <button id="start-camera">Start Camera</button>
+        <video id="video" width="320" height="240" autoplay></video>
+        <button id="click-photo">Click Photo</button>
+        <canvas id="canvas" width="320" height="240"></canvas>
 
         <!-- Current Number of Reps -->
         <h1 style="font-family: Raleway; font-weight: 700; font-size: 60px; text-align: center;"><span style="color:#B3358B">0</span></h1>
