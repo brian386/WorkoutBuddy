@@ -45,9 +45,9 @@ def count_hip_thrust(cur_session,detector,lmList):
         rknee_angle = detector.calc_angle(lmList['right_hip'], lmList['right_knee'], lmList['right_ankle'])
         lknee_angle = detector.calc_angle(lmList['left_hip'], lmList['left_knee'], lmList['left_ankle'])
 
-        if cur_session['up'] and (  (lhip_angle > 170) ):
+        if cur_session['up'] and (  (lhip_angle > 170 and lknee_angle > 70 ) ):
             cur_session['reps'] += 0.5
             cur_session['up'] = False
-        elif not cur_session['up'] and (  (lhip_angle < 90) ): 
+        elif not cur_session['up'] and (  (lhip_angle < 90 and lknee_angle < 60) ): 
             cur_session['reps'] += 0.5
             cur_session['up'] = True;
