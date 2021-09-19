@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Workout Buddy!</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='materialize/css/materialize.min.css') }}"  media="screen,projection"/>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
+        <!-- Import Raleway Font-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    </head>
+    <body bgcolor="#DCCDE8">
+      <nav>
+        <div class="purple accent-1 nav-wrapper">
+          <div class="brand-logo">
+              <a href="/"  style="padding-left: 40px; font-family: Raleway; font-weight: 1000; color: #B3358B"> Workout Buddy </a>
+            </div>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/exercises"  class="z-depth-0 purple lighten-2 btn" style="font-family: Raleway; font-weight: 700;">Exercises</a></li>
+            <li><a href="/workout" class="z-depth-0 purple lighten-2 btn" style="font-family: Raleway; font-weight: 700;">Workout</a></li>
+            <li><a href="/profile" class="z-depth-0 purple lighten-2 btn" style="font-family: Raleway; font-weight: 700;">Profile</a></li>
+            <li><a href="/logout" class="z-depth-0 purple lighten-2 btn" style="font-family: Raleway; font-weight: 700;">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Video location -->
+        <div  style="display:flex;justify-content:center;align-items:center;">
+            <img src="{{ url_for('video') }}" width="35%">
+        </div>
+
+        <!-- Current Number of Reps -->
+        <h1 style="font-family: Raleway; font-weight: 700; font-size: 60px; text-align: center;"><span style="color:#B3358B">0</span></h1>
+
+        <hr style="width: 5%; border-color:#000000; border-width: 4px;">
+
+        <!-- Text Input -->
+        <div style="text-align: center">
+          <input style="width: 20%;margin:auto; font-family: Raleway; font-weight: 700; font-size: 60px; text-align:center;  padding-top: 20px" type="text" name="" value="">
+          </div>
+
+          <!-- Workout -->
+        <h4 style="font-family: Raleway; font-weight: 700; font-size: 30px; text-align: center;">{exercise}</h4>
+
+    </body>
+</html>

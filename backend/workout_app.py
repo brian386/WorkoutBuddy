@@ -4,7 +4,7 @@ import math
 from pose_detection import *
 from exercises import *
 def main():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     detector = pose_detector()
     cur_session = {'reps': 0, 'up': True}
     while True:
@@ -22,3 +22,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+cv2.destroyAllWindows()
