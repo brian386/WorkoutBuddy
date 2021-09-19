@@ -20,8 +20,7 @@ def generate_frames():
         success, frame_0 = camera.read()
         if success == True:
             frame_0 = detector.find_pose(frame_0)
-            success,buffer = cv2.imencode('.jpg', frame_0)
-            frame = buffer.tobytes()
+
 
             lmList = detector.find_position(frame_0)
             if len(lmList) != 0:
@@ -29,8 +28,13 @@ def generate_frames():
                 count_bicep_curl(cur_session, detector, lmList)
 
                 print(math.floor(cur_session['reps']))
-
+            font = cv2.FONT_HERSHEY_DUPLEX
+            cv2.rectangle(frame_0, (0,375),(150,500), (0,0,0), -1)
+            cv2.putText(frame_0, '{}'.format(math.floor(cur_session['reps'])), (10, 450), font, 3, (255, 255, 255), 2, cv2.LINE_AA)
+            success,buffer = cv2.imencode('.jpg', frame_0)
+            frame = buffer.tobytes()
             yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
 
 
 
